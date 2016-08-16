@@ -23,20 +23,37 @@
     <body>
         <header>
             <h1>Popular Repos</h1>
+        </header>
 
-            <form>
-                <input type='text' name='username' placeholder='Enter username'>
+        <main ng-controller='ReposController as reposCtrl'>
+
+            <form
+                novalidate
+                name='getRepos'
+                ng-submit='getRepos.$valid && reposCtrl.getUserRepos()'>
+                <input
+                    type='text'
+                    name='username'
+                    ng-model='reposCtrl.username'
+                    placeholder='Enter username'
+                    required>
+                <input
+                    type='text'
+                    name='token'
+                    ng-model='reposCtrl.token'
+                    placeholder='GitHub Token'
+                    required>
                 <input type='submit' value='Get repos'>
             </form>
 
-            <h2>Repos</h2>
-
-            <ul>
-                <li></li>
-            </ul>
-        </header>
-
-        <main>
+            <section>
+                <h2>Repos</h2>
+                <ul>
+                    <li ng-repeat='repo in reposCtrl.allRepos'>
+                        {{repo.name}}
+                    </li>
+                </ul>
+            </section>
 
         </main>
 
