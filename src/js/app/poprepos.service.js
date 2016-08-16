@@ -12,8 +12,9 @@
         };
 
         function getRepos(username, token) {
+            console.log('getting into getRepos');
             return $http({
-                url: 'https://api.github.com/' + username +'/repos',
+                url: 'https://api.github.com/users/' + username +'/repos',
                 get: 'get',
                 headers: {
                     'Authorization': 'token ' + token
