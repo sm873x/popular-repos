@@ -1,0 +1,3 @@
+js/jquery*
+src/js/vendor/
+node_modules/
