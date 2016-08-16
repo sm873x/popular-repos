@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true
                 },
-                src: ['src/js/app/pop.module.js', 'src/js/*.js'],
+                src: ['src/js/app/pop.module.js', 'src/js/**/*.js'],
                 dest: 'build/js/main.js'
             }
         },
