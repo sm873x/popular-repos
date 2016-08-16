@@ -27,7 +27,7 @@ module.exports = function(grunt) {
                 options: {
                     sourceMap: true
                 },
-                src: ['src/js/**/*.module.js', 'src/js/*.js'],
+                src: ['src/js/app/pop.module.js', 'src/js/*.js'],
                 dest: 'build/js/main.js'
             }
         },
@@ -61,7 +61,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: [ 'src/js/**/*.js' ],
-                tasks: [ 'jshint', 'test', 'concat' ]
+                tasks: [ 'jshint', 'concat' ]
             },
             html: {
                 files: [ 'src/**/*.html' ],
