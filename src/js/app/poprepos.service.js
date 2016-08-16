@@ -11,16 +11,16 @@
             getRepos: getRepos
         };
 
-        function getRepos(username) {
+        function getRepos(username, token) {
             return $http({
                 url: 'https://api.github.com/' + username +'/repos',
                 get: 'get',
                 headers: {
-                    'Authorization': 'token ' + 'aaf389171c17d11fce443d30e3c090f734639681'
+                    'Authorization': 'token ' + token
                 },
                 dataType: 'json'
             });
         }
     }
-    
+
 })();
