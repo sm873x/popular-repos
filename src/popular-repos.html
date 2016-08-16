@@ -49,7 +49,7 @@
             <section>
                 <h2>Repos</h2>
                 <ul>
-                    <li ng-repeat='repo in reposCtrl.allRepos'>
+                    <li ng-repeat='repo in reposCtrl.allRepos | orderBy: "popularity"'>
                         {{repo.name}}
                     </li>
                 </ul>
