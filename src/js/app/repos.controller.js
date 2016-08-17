@@ -11,7 +11,8 @@
         this.allRepos = [];
         this.username = null;
         this.token = null;
-        this.reverse = false; 
+        this.reverse = false;
+        this.chosenRepo = null;
 
         this.getUserRepos = function getUserRepos() {
             poprepos.getRepos(that.username, that.token)
@@ -31,6 +32,11 @@
                 (repo.forks_count * 2) +
                 (repo.open_issues_count/2);
         }
+
+        this.chooseRepo = function chooseRepo(repo) {
+            that.chosenRepo = repo;
+            console.log('chosen repo', that.chosenRepo);
+        };
 
 
 

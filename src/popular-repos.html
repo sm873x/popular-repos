@@ -48,14 +48,27 @@
 
             <section>
                 <h2>Repos</h2>
-                <ul>
-                <li ng-repeat='repo in reposCtrl.allRepos | popularity:true:reposCtrl.reverse'>
-                        {{repo.name}}
-                    </li>
-                </ul>
                 <button ng-click='reposCtrl.reverse = !reposCtrl.reverse' name='reverse'>
                     Reverse Repo Order
                 </button>
+                <ul>
+                    <li
+                        ng-repeat='repo in reposCtrl.allRepos | popularity:true:reposCtrl.reverse'
+                        ng-click='reposCtrl.chooseRepo(repo)'>
+
+                        {{repo.name}}
+
+                    </li>
+                </ul>
+
+                <modal ng-show='reposCtrl.chosenRepo' modal-title='"Repo Details"'>
+                    <ul>
+                        <li>Repo: {{reposCtrl.chosenRepo.name}}</li>
+                        <li>Owner: {{reposCtrl.chosenRepo.owner.login}}</li>
+                        <li>Is Fork: {{reposCtrl.chosenRepo.fork}}</li>
+                        <li>Popularity: {{reposCtrl.chosenRepo.popularity}}</li>
+                    </ul>
+                </modal>
             </section>
 
         </main>
