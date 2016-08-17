@@ -53,10 +53,10 @@
                 </button>
                 <ul>
                     <li
-                        ng-repeat='repo in reposCtrl.allRepos | popularity:true:reposCtrl.reverse'
+                        ng-repeat='repo in reposCtrl.allRepos | popularity:reposCtrl.reverse'
                         ng-click='reposCtrl.chooseRepo(repo)'>
 
-                        {{repo.name}}
+                        {{repo.name}} and I am this popular {{repo.popularity}}
 
                     </li>
                 </ul>

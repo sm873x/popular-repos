@@ -5,26 +5,20 @@
         .filter('popularity', PopularityFilter);
 
     function PopularityFilter() {
-        return function popularity(repos, byDate, reverse) {
-            var newRepos;
+        return function popularity(repos, reverse) {
+            var newRepos = [].concat(repos);
 
-            newRepos = repos.sort(function popular(repo1, repo2) {
-                return (repo1.popularity - repo2.popularity) * -1;
-            }) ;
+            return newRepos.sort(function popular(repo1, repo2) {
+                var diff = repo2.popularity - repo1.popularity;
+                if (diff === 0) {
+                    diff = new Date(repo2.create_at) - new Date(repo1.create_at);
+                }
 
-            if (byDate) {
-                newRepos= newRepos.sort(function (repo1, repo2) {
-                    if (repo1.popularity === repo2.popularity) {
-                        return (new Date(repo1.created_at) - new Date(repo2.created_at)) * -1;
-                    }
-                });
-            }
-
-            if (reverse) {
-                newRepos = newRepos.reverse(); 
-            }
-
-            return newRepos;
+                if (reverse) {
+                    return diff * -1;
+                }
+                return diff;
+            });
         };
     }
 })();
