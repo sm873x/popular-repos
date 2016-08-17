@@ -50,6 +50,11 @@ module.exports = function(grunt) {
                 files: [
                     { expand: true, cwd: 'src/js', src: ['vendor/jquery/dist/jquery.min.js'], dest: 'build/js/'}
                 ]
+            },
+            templates: {
+                files: [
+                    { expand: true, cwd: 'src/js/app', src: ['**/*.html'], dest: 'build/js/'}
+                ]
             }
 
         },
