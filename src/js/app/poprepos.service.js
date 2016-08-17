@@ -20,7 +20,7 @@
                     'Authorization': 'token ' + token
                 },
                 dataType: 'json'
-            });
+            }); 
         }
     }
 

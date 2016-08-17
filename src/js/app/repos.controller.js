@@ -27,6 +27,12 @@
                 });
         };
 
+        /**
+         * Calculate popularity index for each repo
+         * @param  {Object} repo Repo object with properties of stargazers_count,
+         *                       forks_count and open_issues_count
+         * @return {Number}      The popularity index
+         */
         function calcPopularity(repo) {
             return repo.stargazers_count +
                 (repo.forks_count * 2) +
