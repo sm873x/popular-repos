@@ -17,16 +17,19 @@
                 .then(function(repos) {
                     console.log(repos);
                     repos.data.forEach(function popularity(repo) {
-                        repo.popularity =
-                            repo.stargazers_count +
-                            (repo.forks_count * 2) +
-                            (repo.open_issues_count/2);
+                        repo.popularity = calcPopularity(repo);
                     });
 
                     that.allRepos = repos.data;
                     console.log(repos.data);
                 });
         };
+
+        function calcPopularity(repo) {
+            return repo.stargazers_count +
+                (repo.forks_count * 2) +
+                (repo.open_issues_count/2);
+        }
 
 
 
