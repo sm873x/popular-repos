@@ -49,10 +49,11 @@
             <section>
                 <h2>Repos</h2>
                 <ul>
-                    <li ng-repeat='repo in reposCtrl.allRepos | orderBy: "popularity"'>
+                <li ng-repeat='repo in reposCtrl.allRepos | popularity:true'>
                         {{repo.name}}
                     </li>
                 </ul>
+                <button value='Reverse Sort'></button>
             </section>
 
         </main>
