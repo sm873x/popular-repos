@@ -5,7 +5,7 @@
         .filter('popularity', PopularityFilter);
 
     function PopularityFilter() {
-        return function popularity(repos, byDate) {
+        return function popularity(repos, byDate, reverse) {
             var newRepos;
 
             newRepos = repos.sort(function popular(repo1, repo2) {
@@ -18,6 +18,10 @@
                         return (new Date(repo1.created_at) - new Date(repo2.created_at)) * -1;
                     }
                 });
+            }
+
+            if (reverse) {
+                newRepos = newRepos.reverse(); 
             }
 
             return newRepos;

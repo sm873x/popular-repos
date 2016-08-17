@@ -11,6 +11,7 @@
         this.allRepos = [];
         this.username = null;
         this.token = null;
+        this.reverse = false; 
 
         this.getUserRepos = function getUserRepos() {
             poprepos.getRepos(that.username, that.token)
